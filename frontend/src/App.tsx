@@ -4,6 +4,7 @@ import './App.css';
 import { Route, BrowserRouter as Router, Switch, Link} from 'react-router-dom';
 import Product from './Products/Products';
 import Home from './Home/Home';
+import Orders from './Orders/Orders';
 
 function App() {
   const openMenu = () => {
@@ -12,7 +13,7 @@ function App() {
   const closeMenu = () => {
     document.querySelector(".sidebar")?.classList.remove("open");
   }
-  return (
+ return ( 
     <Router>
     <div className="grid-container">
         <header className="header">
@@ -23,6 +24,7 @@ function App() {
             <div className="header-links">
                  <Link to="/">Home</Link>
                  <Link to="/catalog">Catalog</Link>
+                 <Link to="/orders">Orders</Link>
              </div>
         </header>
     <head>
@@ -52,11 +54,22 @@ function App() {
           <Route path="/catalog">
             <Product />
           </Route>
+          <Route path="/orders">
+              <Orders />
+          </Route>
+          <Route path="/order/:id">
+                <OrderDetail />
+          </Route>
         </Switch>
         </main>
                 <footer className= "footer">
                    &copy; 2021 PROJECT LIONDEN
                 </footer>
+             </div>
+             <div className="content">
+                 <ul className="products">
+                 
+                 </ul>
              </div>
          </body>
     </div>
